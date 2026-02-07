@@ -380,7 +380,7 @@ btnCheckout.addEventListener("click", () => {
     alert("Seu carrinho está vazio.");
     return;
   }
-  alert("Checkout demo: aqui você integraria pagamento (Pix/Cartão) e envio.");
+  alert("Eu mereço um aumento?");
 });
 
 // Drawer open/close
@@ -469,3 +469,4 @@ goHero(0);
 restartHeroTimer();
 renderCart();
 applyFilters();
+
