@@ -6,8 +6,8 @@
   --muted:#5b5b5b;
   --line:rgba(0,0,0,.10);
 
-  --primary:#e30613;     /* vermelho principal */
-  --primary2:#b5040f;    /* vermelho escuro */
+  --primary:#e30613;     
+  --primary2:#b5040f;    
   --shadow: 0 10px 30px rgba(0,0,0,.12);
   --radius:18px;
 }
@@ -587,4 +587,41 @@ html, body{
   overflow-x: hidden;
 }
 
+@media (max-width: 980px){
+  .menu__right{
+    display: block !important;
+  }
+}
 
+@media (max-width: 980px){
+  .menu{
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: #fff;
+
+    flex-wrap: nowrap;        
+    overflow-x: auto;         
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 10px;
+  }
+
+  .menu::-webkit-scrollbar{
+    height: 6px;
+  }
+
+  
+  .chip{
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  
+  .menu__right{
+    position: sticky;
+    right: 0;
+    margin-left: auto;
+    padding-left: 8px;
+    background: #fff;
+  }
+}
