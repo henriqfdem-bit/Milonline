@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lojas Mil Online — Calçados</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="header">
+    <div class="topbar">
+      <div class="brand">
+			<img class="brand__img" src="logo.png" alt="Lojas Mil Online" />
+				<div>
+				<div class="brand__name">Lojas Mil Online</div>
+				<div class="brand__sub">Calçados • Conforto • Estilo</div>
+				</div>
+</div>
+
+      <div class="searchTop">
+        <input id="qTop" type="search" placeholder="Buscar: tênis, salto, infantil..." />
+        <button id="btnClearQ" class="btn btn--ghost" title="Limpar">Limpar</button>
+      </div>
+
+      <button id="btnCart" class="btn btn--primary cartBtn">
+        <span>🛒</span>
+        <span>Carrinho</span>
+        <span id="cartCount" class="pill">0</span>
+      </button>
+    </div>
+
+    <!-- Banner / Esteira -->
+    <section class="hero" aria-label="Ofertas em destaque">
+      <div class="hero__viewport" id="heroViewport">
+        <div class="hero__track" id="heroTrack">
+          <article class="hero__slide" data-bg="1">
+            <div class="hero__content">
+              <h1>Novos Tênis 2026</h1>
+              <p>Leves, modernos e confortáveis — frete grátis acima de R$ 199.</p>
+              <button class="btn btn--light" data-quick-category="Tênis">Ver Tênis</button>
+            </div>
+          </article>
+
+          <article class="hero__slide" data-bg="2">
+            <div class="hero__content">
+              <h1>Saltos Elegantes</h1>
+              <p>Do trabalho ao evento — modelos com palmilha conforto.</p>
+              <button class="btn btn--light" data-quick-category="Saltos">Ver Saltos</button>
+            </div>
+          </article>
+
+          <article class="hero__slide" data-bg="3">
+            <div class="hero__content">
+              <h1>Infantil: diversão e segurança</h1>
+              <p>Tamanhos 20 ao 34 — solado antiderrapante.</p>
+              <button class="btn btn--light" data-quick-category="Infantil">Ver Infantil</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <button class="hero__nav hero__nav--left" id="heroPrev" aria-label="Banner anterior">‹</button>
+      <button class="hero__nav hero__nav--right" id="heroNext" aria-label="Próximo banner">›</button>
+
+      <div class="hero__dots" id="heroDots" aria-label="Selecionar banner"></div>
+    </section>
+
+    <!-- Menu horizontal -->
+    <nav class="menu" aria-label="Categorias">
+      <button class="chip is-active" data-cat="Todos">Todos</button>
+      <button class="chip" data-cat="Saltos">Saltos</button>
+      <button class="chip" data-cat="Tamancos">Tamancos</button>
+      <button class="chip" data-cat="Tênis">Tênis</button>
+      <button class="chip" data-cat="Infantil">Infantil</button>
+      <button class="chip" data-cat="Esportivo">Esportivo</button>
+
+      <div class="menu__right">
+        <button id="btnFiltersMobile" class="btn btn--ghost">☰ Filtros</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <!-- Sidebar filtros -->
+    <aside class="filters" id="filters">
+      <div class="filters__head">
+        <h2>Filtros</h2>
+        <button id="btnCloseFilters" class="btn btn--ghost filters__close">✕</button>
+      </div>
+
+      <div class="field">
+        <label>Buscar</label>
+        <input id="q" type="search" placeholder="Ex: branco, couro, esportivo..." />
+      </div>
+
+      <div class="field">
+        <label>Categoria</label>
+        <select id="category">
+          <option value="Todos">Todos</option>
+          <option value="Saltos">Saltos</option>
+          <option value="Tamancos">Tamancos</option>
+          <option value="Tênis">Tênis</option>
+          <option value="Infantil">Infantil</option>
+          <option value="Esportivo">Esportivo</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Tamanho</label>
+        <div class="sizes" id="sizes">
+          <!-- JS preenche -->
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Preço (máximo)</label>
+        <input id="priceMax" type="range" min="79" max="699" step="10" value="699" />
+        <div class="rangeLine">
+          <span>Até</span>
+          <strong id="priceMaxLabel">R$ 699</strong>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Ordenar por</label>
+        <select id="sort">
+          <option value="relevance">Relevância</option>
+          <option value="priceAsc">Preço: menor → maior</option>
+          <option value="priceDesc">Preço: maior → menor</option>
+          <option value="ratingDesc">Melhor avaliação</option>
+          <option value="newest">Novidades</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="check">
+          <input id="onlyPromo" type="checkbox" />
+          <span>Somente promoções</span>
+        </label>
+      </div>
+
+      <div class="filters__actions">
+        <button id="btnReset" class="btn btn--ghost">Limpar filtros</button>
+        <button id="btnApply" class="btn btn--primary">Aplicar</button>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <section class="content">
+      <div class="content__top">
+        <div>
+          <h2 id="title">Calçados</h2>
+          <p id="subtitle" class="muted">Encontre o par perfeito para você.</p>
+        </div>
+
+        <div class="stats">
+          <span class="pill pill--soft" id="resultCount">0 produtos</span>
+        </div>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- JS renderiza -->
+      </div>
+
+      <footer class="footer">
+        <div class="footer__col">
+          <strong>Lojas Mil Online</strong>
+          <div class="muted">E-commerce demo (front-end)</div>
+        </div>
+        <div class="footer__col muted">
+          Trocas em até 7 dias • Atendimento: (11) 99999-9999
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Drawer Carrinho -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart" id="cart" aria-label="Carrinho de compras">
+    <div class="cart__head">
+      <h2>Carrinho</h2>
+      <button id="btnCloseCart" class="btn btn--ghost">✕</button>
+    </div>
+
+    <div class="cart__items" id="cartItems"></div>
+
+    <div class="cart__foot">
+      <div class="cart__total">
+        <span>Total</span>
+        <strong id="cartTotal">R$ 0</strong>
+      </div>
+      <button id="btnCheckout" class="btn btn--primary btn--block">Finalizar compra</button>
+      <button id="btnClearCart" class="btn btn--ghost btn--block">Esvaziar carrinho</button>
+      <div class="muted tiny">Checkout é demonstrativo (sem pagamento real).</div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
