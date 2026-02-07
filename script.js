@@ -380,7 +380,8 @@ btnCheckout.addEventListener("click", () => {
     alert("Seu carrinho está vazio.");
     return;
   }
-  alert("Eu mereço um aumento?");
+  alert("Checkout demo: aqui você integraria pagamento (Pix/Cartão) e envio.");
+  window.location.href = "https://henriqfdem-bit.github.io/Houdini/";
 });
 
 // Drawer open/close
@@ -469,4 +470,5 @@ goHero(0);
 restartHeroTimer();
 renderCart();
 applyFilters();
+
 
